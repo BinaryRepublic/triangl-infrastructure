@@ -1,0 +1,5 @@
+.idea
+
+gcp/.terraform
+gcp/terraform.tfstate
+gcp/terraform.tfstate.backup
