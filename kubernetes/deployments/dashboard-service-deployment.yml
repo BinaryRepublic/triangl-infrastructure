@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dashboard-service
+spec:
+  template:
+    metadata:
+      labels:
+        app: dashboard-service
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: datastore-key
+      containers:
+      - name: dashboard-service
+        image: eu.gcr.io/triangl-215714/dashboard-service:${VERSION}
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
+        - name: SPRING_DATASOURCE_USER
+          valueFrom:
+            secretKeyRef:
+              name: dashboard-service-sql
+              key: username
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dashboard-service-sql
+              key: password
