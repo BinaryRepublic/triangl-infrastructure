@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: customer-service
+spec:
+  template:
+    metadata:
+      labels:
+        app: customer-service
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: datastore-key
+      containers:
+      - name: customer-service
+        image: eu.gcr.io/triangl-215714/customer-service:${VERSION}
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json

@@ -30,8 +30,4 @@ resource "google_container_cluster" "primary" {
   lifecycle {
     ignore_changes = ["node_pool"]
   }
-
-  node_pool {
-    name = "default-pool"
-  }
 }
