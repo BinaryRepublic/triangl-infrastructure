@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: api-ingress
+  name: ingress
   annotations:
     ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /
@@ -11,9 +11,19 @@ metadata:
 spec:
   tls:
   - hosts:
+    - triangl.io
+    secretName: crt-triangl-io
+  - hosts:
     - api.triangl.io
-    secretName: api-crt-prod
+    secretName: crt-api-triangl-io
   rules:
+  - host: triangl.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: dashboard
+          servicePort: 80
   - host: api.triangl.io
     http:
       paths:
