@@ -16,6 +16,16 @@ variable "cluster_name" {
   description = "Cluster name for the GCP Cluster."
 }
 
+variable "default_node_pool_name" {
+  type = "string"
+  description = "Name for default node pool of cluster."
+}
+
+variable "scalable_node_pool_name" {
+  type = "string"
+  description = "Name for secondary scalable node pool of cluster."
+}
+
 // GCP Outputs
 output "gcp_cluster_endpoint" {
   value = "${google_container_cluster.primary.endpoint}"

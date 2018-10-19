@@ -1,9 +1,9 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: api-crt-prod
+  name: crt-api-triangl-io
 spec:
-  secretName: api-crt-prod
+  secretName: crt-api-triangl-io
   dnsNames:
   - api.triangl.io
   acme:
