@@ -21,6 +21,8 @@ spec:
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: /var/secrets/google/key.json
+        - name: SPRING_CLOUD_GCP_SQL_DATABASE_NAME
+          value: serving-prod
         - name: SPRING_DATASOURCE_USER
           valueFrom:
             secretKeyRef:
