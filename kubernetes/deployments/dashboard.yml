@@ -11,3 +11,8 @@ spec:
       containers:
       - name: dashboard
         image: eu.gcr.io/triangl-215714/dashboard:latest
+        resources:
+          limits:
+            cpu: "0.1"
+          requests:
+            cpu: "0.05"

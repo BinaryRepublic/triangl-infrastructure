@@ -40,6 +40,7 @@ echo "########"
 echo "Start all services? Make sure all domains of your ingress are pointing to the cluster!"
 read -p "Press enter to start-up all applications..."
 
+kubectl delete clusterissuer letsencrypt-staging
 kubectl apply -f clusterissuers/letsencrypt-prod.yml
 
 kubectl apply -f secrets
