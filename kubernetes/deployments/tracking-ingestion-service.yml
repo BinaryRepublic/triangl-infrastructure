@@ -14,7 +14,7 @@ spec:
           secretName: google-cloud-key
       containers:
       - name: tracking-ingestion-service
-        image: eu.gcr.io/triangl-215714/tracking-ingestion-service:lastest
+        image: eu.gcr.io/triangl-215714/tracking-ingestion-service:latest
         resources:
           limits:
             cpu: "0.1"
@@ -26,5 +26,5 @@ spec:
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: /var/secrets/google/key.json
-        - name: PUBSUB_TOPIC
+        - name: PUBSUB_TOPICID
           value: ingestion-prod
