@@ -28,3 +28,5 @@ spec:
           value: /var/secrets/google/key.json
         - name: PUBSUB_TOPICID
           value: ingestion-prod
+        - name: SENTRY_DSN
+          value: https://c72d446aead4482f9e0f39c18a034bda@sentry.io/1314460
