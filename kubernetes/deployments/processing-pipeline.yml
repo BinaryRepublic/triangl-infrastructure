@@ -36,3 +36,5 @@ spec:
           value: root
         - name: DB_PASSWORD
           value: root
+        - name: SENTRY_DSN
+          value: https://4df769dbdaf447e6aa1a28dacdb067a1@sentry.io/1317883

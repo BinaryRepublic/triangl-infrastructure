@@ -38,3 +38,5 @@ spec:
             secretKeyRef:
               name: dashboard-service-sql
               key: password
+        - name: SENTRY_DSN
+          value: https://4c03d389349a417e94c1446a4800352b@sentry.io/1318106
