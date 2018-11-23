@@ -21,6 +21,13 @@ resource "google_sql_database" "serving-staging" {
   collation = "latin1_swedish_ci"
 }
 
+resource "google_sql_database" "dashboard-utils" {
+  name      = "dashboard-utils"
+  instance  = "${google_sql_database_instance.analyzing.name}"
+  charset   = "latin1"
+  collation = "latin1_swedish_ci"
+}
+
 resource "google_sql_user" "users" {
   instance = "${google_sql_database_instance.analyzing.name}"
   name     = "root"
