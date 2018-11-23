@@ -30,3 +30,19 @@ spec:
           value: ingestion-prod
         - name: SENTRY_DSN
           value: https://e95b3a253e8040f9a32af069e5c6cdc8@sentry.io/1318093
+        livenessProbe:
+          httpGet:
+            path: /actuator/info
+            port: 8080
+          initialDelaySeconds: 120
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 2
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 120
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 2
