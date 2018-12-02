@@ -30,6 +30,8 @@ spec:
           value: triangl-215714
         - name: PUBSUB_TOPIC
           value: ingestion-prod
+        - name: PUBSUB_SUBSCRIPTION
+          value: processing-pipeline-prod
         - name: JDBC_URL
           value: jdbc:mysql://google/serving-prod?cloudSqlInstance=triangl-215714:europe-west3:analyzing&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false
         - name: DB_USER
