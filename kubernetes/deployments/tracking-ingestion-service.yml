@@ -28,6 +28,16 @@ spec:
           value: /var/secrets/google/key.json
         - name: PUBSUB_TOPICID
           value: ingestion-prod
+        - name: MAC_SALT
+          valueFrom:
+            secretKeyRef:
+              name: mac-hashing
+              key: salt
+        - name: MAC_PEPPER
+          valueFrom:
+            secretKeyRef:
+              name: mac-hashing
+              key: pepper
         - name: SENTRY_DSN
           value: https://e95b3a253e8040f9a32af069e5c6cdc8@sentry.io/1318093
         livenessProbe:
