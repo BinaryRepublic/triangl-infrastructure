@@ -12,7 +12,7 @@ resource "google_container_cluster" "primary" {
   node_pool = [
     {
       name = "${var.default_node_pool_name}"
-      node_count= 2
+      node_count= 3
     }
   ]
 }
