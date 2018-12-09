@@ -14,10 +14,13 @@ spec:
     - triangl.io
     secretName: crt-triangl-io
   - hosts:
+    - app.triangl.io
+    secretName: crt-app-triangl-io
+  - hosts:
     - api.triangl.io
     secretName: crt-api-triangl-io
   rules:
-  - host: triangl.io
+  - host: app.triangl.io
     http:
       paths:
       - path: /

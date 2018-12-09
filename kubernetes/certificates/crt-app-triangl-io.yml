@@ -1,0 +1,17 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: crt-app-triangl-io
+spec:
+  secretName: crt-app-triangl-io
+  dnsNames:
+  - triangl.io
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - triangl.io
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
