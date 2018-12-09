@@ -7,6 +7,8 @@ our Kubernetes Cluster.
 
 ![Image of invoice flow](docs/img/infrastructure.svg)
 
+Here you can find our [sequence diagram](docs/img/sequence-diagram.svg).
+
 ## 1) Google Cloud Platform Configuration
 
 We are using [terraform](https://www.terraform.io/docs/providers/google)
