@@ -9,6 +9,9 @@ our Kubernetes Cluster.
 
 Here you can find our [sequence diagram](docs/img/sequence-diagram.svg).
 
+We are using two databases to separate ingestion and serving data. You can find
+the [entity-relationship-diagrams](docs/img/entity-relationship-diagram.svg) here.
+
 ## 1) Google Cloud Platform Configuration
 
 We are using [terraform](https://www.terraform.io/docs/providers/google)
