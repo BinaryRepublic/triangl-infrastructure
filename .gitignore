@@ -6,3 +6,7 @@ gcp/terraform.tfstate.backup
 gcp/terraform.tfvars
 
 kubernetes/secrets/*
+
+local/terraform/.terraform
+local/terraform/terraform.tfstate
+local/terraform/terraform.tfstate.backup
