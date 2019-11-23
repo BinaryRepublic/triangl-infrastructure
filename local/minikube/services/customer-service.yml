@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: customer-service
+spec:
+  selector:
+    app: customer-service
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080

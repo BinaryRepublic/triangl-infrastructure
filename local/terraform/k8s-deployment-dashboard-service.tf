@@ -37,6 +37,16 @@ resource "kubernetes_deployment" "dashboard-service" {
             name = "SPRING_CLOUD_GCP_SQL_DATABASE_NAME"
             value = "serving-prod"
           }
+          env {
+            name = "SENTRY_DSN"
+            value = "https://cb310c54ec8b4a8bb8b507133c0b4cab@sentry.io/1818909"
+          }
+          resources {
+            requests {
+              cpu = "300m"
+              memory = "512Mi"
+            }
+          }
         }
       }
     }

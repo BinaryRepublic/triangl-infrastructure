@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: processing-pipeline
+spec:
+  template:
+    metadata:
+      labels:
+        app: processing-pipeline
+    spec:
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: google-cloud-key
+      containers:
+      - name: processing-pipeline
+        image: eu.gcr.io/triangl-215714/processing-pipeline:latest
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/google/key.json
+        - name: PROJECT_ID
+          value: triangl-215714
+        - name: PUBSUB_TOPIC
+          value: ingestion-prod
+        - name: PUBSUB_SUBSCRIPTION
+          value: processing-pipeline-prod
+        - name: JDBC_URL
+          value: jdbc:mysql://google/serving-prod?cloudSqlInstance=triangl-215714:europe-west3:analyzing&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false
+        - name: DB_USER
+          value: root
+        - name: DB_PASSWORD
+          value: root
+        - name: SENTRY_DSN
+          value: https://4df769dbdaf447e6aa1a28dacdb067a1@sentry.io/1317883
