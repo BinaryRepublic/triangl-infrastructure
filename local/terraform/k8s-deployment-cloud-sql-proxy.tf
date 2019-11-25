@@ -1,3 +1,9 @@
+/*
+  THIS DEPLOYMENT WAS JUST ADDED TO CONNECT TO GCLOUD SQL FROM A LOCAL
+  MINIKUBE CLUSTER. THIS SHOULD BE REMOVED WHEN RUNNING THE CLUSTER ON
+  GCP.
+*/
+
 resource "kubernetes_deployment" "cloud-sql-proxy" {
   metadata {
     name = "cloud-sql-proxy"
