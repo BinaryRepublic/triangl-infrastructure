@@ -18,7 +18,7 @@ resource "kubernetes_deployment" "dashboard-service" {
         volume {
           name = "google-cloud-key"
           secret {
-            secret_name = "google-application-credentials"
+            secret_name = "gcp-credentials-dashboard-service"
           }
         }
         container {

@@ -14,8 +14,8 @@ resource "google_sql_database" "serving-prod" {
   collation = "latin1_swedish_ci"
 }
 
-resource "google_sql_database" "serving-staging" {
-  name      = "serving-staging"
+resource "google_sql_database" "auth" {
+  name      = "auth"
   instance  = google_sql_database_instance.analyzing.name
   charset   = "latin1"
   collation = "latin1_swedish_ci"

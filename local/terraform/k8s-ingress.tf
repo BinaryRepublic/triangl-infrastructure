@@ -50,6 +50,13 @@ resource "kubernetes_ingress" "api-ingress" {
             service_port = 8080
           }
         }
+        path {
+          path = "/auth-service(/|$)(.*)"
+          backend {
+            service_name = "auth-service"
+            service_port = 3000
+          }
+        }
       }
     }
   }
