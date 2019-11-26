@@ -34,14 +34,6 @@ spec:
         backend:
           serviceName: nginx
           servicePort: 80
-      - path: /customer-service
-        backend:
-          serviceName: customer-service
-          servicePort: 8080
-      - path: /tracking-ingestion-service
-        backend:
-          serviceName: tracking-ingestion-service
-          servicePort: 8080
       - path: /dashboard-service
         backend:
           serviceName: dashboard-service
