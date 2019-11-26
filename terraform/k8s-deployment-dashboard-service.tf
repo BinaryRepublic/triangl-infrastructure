@@ -47,6 +47,26 @@ resource "kubernetes_deployment" "dashboard-service" {
               memory = "512Mi"
             }
           }
+          liveness_probe {
+            http_get {
+              path = "/actuator/info"
+              port = "8080"
+            }
+            initial_delay_seconds = 120
+            timeout_seconds = 2
+            period_seconds = 5
+            failure_threshold = 2
+          }
+          readiness_probe {
+            http_get {
+              path = "/actuator/health"
+              port = "8080"
+            }
+            initial_delay_seconds = 120
+            timeout_seconds = 2
+            period_seconds = 5
+            failure_threshold = 2
+          }
         }
       }
     }

@@ -53,11 +53,21 @@ resource "kubernetes_deployment" "auth-service" {
           }
           env {
             name = "SQL_USER"
-            value = "root"
+            value_from {
+              secret_key_ref {
+                name = "auth-service-db-cred"
+                key = "user"
+              }
+            }
           }
           env {
             name = "SQL_PASSWORD"
-            value = "root"
+            value_from {
+              secret_key_ref {
+                name = "auth-service-db-cred"
+                key = "password"
+              }
+            }
           }
           env {
             name = "SQL_DATABASE"
@@ -68,6 +78,26 @@ resource "kubernetes_deployment" "auth-service" {
               cpu = "300m"
               memory = "512Mi"
             }
+          }
+          liveness_probe {
+            http_get {
+              path = "/auth/.well-known/jwks.json"
+              port = "3000"
+            }
+            initial_delay_seconds = 120
+            timeout_seconds = 2
+            period_seconds = 5
+            failure_threshold = 2
+          }
+          readiness_probe {
+            http_get {
+              path = "/auth/.well-known/jwks.json"
+              port = "3000"
+            }
+            initial_delay_seconds = 120
+            timeout_seconds = 2
+            period_seconds = 5
+            failure_threshold = 2
           }
         }
       }

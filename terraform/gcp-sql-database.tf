@@ -28,8 +28,20 @@ resource "google_sql_database" "dashboard-utils" {
   collation = "latin1_swedish_ci"
 }
 
-resource "google_sql_user" "users" {
+resource "google_sql_user" "processing-pipeline" {
   instance = google_sql_database_instance.analyzing.name
-  name     = "root"
-  password = "root"
+  name     = "processing-pipeline"
+  password = "initial-tUeHAaXaTzv8qenGEbwm"
+}
+
+resource "google_sql_user" "dashboard-service" {
+  instance = google_sql_database_instance.analyzing.name
+  name     = "dashboard-service"
+  password = "initial-qenGEbtUeHAaXaTzv8wm"
+}
+
+resource "google_sql_user" "auth-service" {
+  instance = google_sql_database_instance.analyzing.name
+  name     = "auth-service"
+  password = "initial-aXatUeHATzv8qenGEbwm"
 }
