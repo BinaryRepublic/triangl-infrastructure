@@ -4,5 +4,5 @@ kubectl apply -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master
 kubectl apply -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
 kubectl apply -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
 
-kubectl create secret generic datadog-secret --from-literal api-key="3bafa322598424bb916be8878abf5979"
+kubectl create secret generic datadog-secret --from-literal api-key="DATADOG_KEY"
 kubectl apply -f datadog-agent.yaml
